@@ -9,10 +9,13 @@ class Category
     {
         $this->categoryName = $_categoryName;
 
-        if ($this->categoryName === "dog") {
-            $this->icon = "fas fa-dog";
-        } elseif ($this->categoryName === "cat") {
-            $this->icon = "fas fa-cat";
+        switch ($this->categoryName) {
+            case "dog":
+                $this->icon = "fas fa-dog";
+                break;
+            case "cat":
+                $this->icon = "fas fa-cat";
+                break;
         }
     }
 

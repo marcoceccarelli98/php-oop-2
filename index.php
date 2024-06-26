@@ -18,14 +18,7 @@ $catFakeMouse = new Product("cat", "games", "Cat Fake Mouse", 4.99, "./images/ca
 $catFleaShampoo = new Product("cat", "care", "Cat Flea Shampoo", 12.80, "./images/cat_flea_shampoo.jpg");
 $catKennel = new Product("cat", "kennel", "Cat Kennel", 42.60, "./images/cat_kennel.jpg");
 
-$products = [$dogFood, $dogRope, $dogToothBrush, $dogKennel, $catFood, $catFakeMouse, $catFleaShampoo, $catKennel]
-
-
-// try {
-//     $movie1->setYear(2020);
-// } catch (Exception $error) {
-//     echo $error->getMessage();
-// }
+$products = [$dogFood, $dogRope, $dogToothBrush, $dogKennel, $catFood, $catFakeMouse, $catFleaShampoo, $catKennel];
 
 ?>
 
@@ -41,24 +34,34 @@ $products = [$dogFood, $dogRope, $dogToothBrush, $dogKennel, $catFood, $catFakeM
 </head>
 
 <body>
-    <div class="container">
-        <div class="products-list">
-            <?php foreach ($products as $product) : ?>
-                <div class="product-card">
-                    <div class="image-content">
-                        <img src="<?php echo $product->getImage() ?>" alt="">
-                    </div>
-                    <div class="text-content">
-                        <h2><?php echo $product->getProductName() ?></h2>
-                        <div class="text-bottom">
-                            <i class="<?php echo $product->getIcon() ?>"></i>
-                            <div><?php echo number_format($product->getPrice(), 2); ?> €</div>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-paw"></i> OOP SHOP
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="products-list">
+                <?php foreach ($products as $product) : ?>
+                    <div class="product-card">
+                        <div class="image-content">
+                            <img src="<?php echo $product->getImage() ?>" alt="">
+                        </div>
+                        <div class="text-content">
+                            <h2><?php echo $product->getProductName() ?></h2>
+                            <div class="text-bottom">
+                                <i class="<?php echo $product->getIcon() ?>"></i>
+                                <div><?php echo number_format($product->getPrice(), 2); ?> €</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            <?php endforeach; ?>
+                <?php endforeach; ?>
+            </div>
         </div>
-    </div>
+    </main>
 </body>
 
 </html>
