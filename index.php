@@ -20,6 +20,14 @@ $catKennel = new Product("cat", "kennel", "Cat Kennel", 42.60, "./images/cat_ken
 
 $products = [$dogFood, $dogRope, $dogToothBrush, $dogKennel, $catFood, $catFakeMouse, $catFleaShampoo, $catKennel];
 
+// FILTER
+
+$filter = "All";
+
+if (isset($_POST['filter'])) {
+    $filter = $_POST['filter'];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -35,10 +43,18 @@ $products = [$dogFood, $dogRope, $dogToothBrush, $dogKennel, $catFood, $catFakeM
 
 <body>
     <header>
-        <div class="container">
+        <div class="container d-flex justify-between align-center">
             <div class="logo">
                 <i class="fas fa-paw"></i> OOP SHOP
             </div>
+            <form method="post">
+                <select name="filter">
+                    <option value="all" <?php echo ($filter == 'all') ? 'selected' : ''; ?>>All</option>
+                    <option value="dog" <?php echo ($filter == 'dog') ? 'selected' : ''; ?>>Dog</option>
+                    <option value="cat" <?php echo ($filter == 'cat') ? 'selected' : ''; ?>>Cat</option>
+                </select>
+                <button>Filter</button>
+            </form>
         </div>
     </header>
 
@@ -46,18 +62,20 @@ $products = [$dogFood, $dogRope, $dogToothBrush, $dogKennel, $catFood, $catFakeM
         <div class="container">
             <div class="products-list">
                 <?php foreach ($products as $product) : ?>
-                    <div class="product-card">
-                        <div class="image-content">
-                            <img src="<?php echo $product->getImage() ?>" alt="">
-                        </div>
-                        <div class="text-content">
-                            <h2><?php echo $product->getProductName() ?></h2>
-                            <div class="text-bottom">
-                                <i class="<?php echo $product->getIcon() ?>"></i>
-                                <div><?php echo number_format($product->getPrice(), 2); ?> €</div>
+                    <?php if ($filter === $product->getCategoryName() || $filter === "all") : ?>
+                        <div class="product-card">
+                            <div class="image-content">
+                                <img src="<?php echo $product->getImage() ?>" alt="<?php echo $product->getProductName() ?>">
+                            </div>
+                            <div class="text-content">
+                                <h2><?php echo $product->getProductName() ?></h2>
+                                <div class="text-bottom">
+                                    <i class="<?php echo $product->getIcon() ?>"></i>
+                                    <div><?php echo number_format($product->getPrice(), 2); ?> €</div>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 <?php endforeach; ?>
             </div>
         </div>
