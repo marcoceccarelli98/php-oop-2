@@ -1,13 +1,13 @@
 <?php
-
-class Product
+class Product extends Type
 {
-    protected string $productName;
-    protected float $price;
-    protected string $image;
+    private string $productName;
+    private float $price;
+    private string $image;
 
-    public function __construct($_productName, $_price, $_image)
+    public function __construct($_categoryName, $_typeName, $_productName, $_price, $_image)
     {
+        parent::__construct($_categoryName, $_typeName);
         $this->productName = $_productName;
         $this->price = $_price;
         $this->image = $_image;

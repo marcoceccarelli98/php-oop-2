@@ -1,25 +1,23 @@
 <?php
 
-require_once __DIR__ . "/Models/Product.php";
 require_once __DIR__ . "/Models/Category.php";
 require_once __DIR__ . "/Models/Type.php";
+require_once __DIR__ . "/Models/Product.php";
 
-$testProduct = new Product("Crocchette", 10.5, "img1.jpg");
-$testCategory = new Category("Crocchette", 10.5, "img1.jpg");
-$testType = new Type("Crocchette", 10.5, "img1.jpg");
+// --- PRODUCTS
 
+// - DOG
+$dogFood = new Product("dog", "food", "Dog Food", 10.50, "dog_food.jpg");
+$dogRope = new Product("dog", "games", "Dog Rope", 6.40, "dog_rope.jpg");
+
+// - CAT
+$catFood = new Product("cat", "food", "Cat Food", 8.99, "cat_food.jpg");
+$catFakeMouse = new Product("cat", "games", "Cat Fake Mouse", 4.99, "cat_fake_mouse.jpg");
 
 echo '<pre>';
 var_dump($testProduct);
 echo '</pre>';
 
-echo '<pre>';
-var_dump($testCategory);
-echo '</pre>';
-
-echo '<pre>';
-var_dump($testType);
-echo '</pre>';
 
 // try {
 //     $movie1->setYear(2020);

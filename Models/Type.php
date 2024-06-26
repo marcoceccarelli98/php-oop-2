@@ -2,21 +2,22 @@
 
 class Type extends Category
 {
-    private string $typeName;
+    protected string $typeName;
 
-    public function __construct($_typeName)
+    public function __construct($_categoryName, $_typeName)
     {
+        parent::__construct($_categoryName);
         $this->typeName = $_typeName;
     }
 
     // GETTER
-    public function gettypeName(): string
+    public function getTypeName(): string
     {
         return $this->typeName;
     }
 
     // SETTER
-    public function settypeName($_typeName): void
+    public function setTypeName($_typeName): void
     {
         $this->typeName = $_typeName;
     }

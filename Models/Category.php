@@ -1,14 +1,19 @@
 <?php
 
-class Category extends Product
+class Category
 {
-    private string $categoryName;
-    private string $icon;
+    protected string $categoryName;
+    protected string $icon;
 
-    public function __construct($_productName, $_price, $_image, $_categoryName)
+    public function __construct($_categoryName)
     {
-        parent::__construct($_productName, $_price, $_image);
         $this->categoryName = $_categoryName;
+
+        if ($this->categoryName === "dog") {
+            $this->icon = "fas fa-dog";
+        } elseif ($this->categoryName === "cat") {
+            $this->icon = "fas fa-cat";
+        }
     }
 
     // GETTER
