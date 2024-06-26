@@ -14,7 +14,7 @@ class Product extends Type
     }
 
     // GETTER
-    public function getproductName(): string
+    public function getProductName(): string
     {
         return $this->productName;
     }
@@ -28,7 +28,7 @@ class Product extends Type
     }
 
     // SETTER
-    public function setproductName($_productName): void
+    public function setProductName($_productName): void
     {
         $this->productName = $_productName;
     }

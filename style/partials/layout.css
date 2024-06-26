@@ -1,0 +1,43 @@
+/* ---------------- LAYOUT ----------------- */
+
+.container {
+  width: 90%;
+  margin: 100px auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.d-flex {
+  display: flex;
+}
+
+/* JUSTIFY */
+
+.center {
+  justify-content: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+/*----------- COLUMN -----------*/
+
+.col-40 {
+  width: 40%;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.col-60 {
+  width: 60%;
+}
+
+.col-100 {
+  width: 100%;
+}
